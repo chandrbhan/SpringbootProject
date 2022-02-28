@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id:  user-services
+          uri: lb://user-services
+          predicates:
+            - Path=/users/**
+        - id:  task-services
+          uri: lb://task-services
+          predicates:
+            - Path=/tasks/**
+        - id : organization-services
+          uri: lb://organization-services
+          predicates:
+            - Path=/organizations/**
